@@ -18,7 +18,7 @@ function App() {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: 'easeOut' }}
-      className="mx-auto min-h-screen max-w-7xl px-4 py-6 lg:px-6"
+      className="mx-auto min-h-screen max-w-7xl px-3 py-4 sm:px-4 sm:py-6 lg:px-6"
     >
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
         <Sidebar />
@@ -27,14 +27,17 @@ function App() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-soft"
+            className="rounded-2xl border border-slate-200 bg-white/95 p-3 shadow-soft sm:p-4"
           >
-            <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-xl font-semibold text-slate-900">CUREVOO SprintFlow</h2>
-                <p className="text-sm text-slate-600">أداة داخلية خفيفة لإدارة السبرنتات</p>
+                <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">CUREVOO SprintFlow</h2>
+                <p className="text-xs text-slate-600 sm:text-sm">أداة داخلية خفيفة لإدارة السبرنتات</p>
               </div>
-              <button onClick={resetState} className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-xs text-slate-600 hover:bg-slate-50">
+              <button
+                onClick={resetState}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-xs text-slate-600 hover:bg-slate-50 sm:w-auto"
+              >
                 <RotateCcw size={14} /> استعادة بيانات البداية
               </button>
             </div>

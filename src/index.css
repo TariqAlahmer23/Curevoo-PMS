@@ -28,7 +28,7 @@ body::after {
   position: fixed;
   inset: -20%;
   pointer-events: none;
-  z-index: -1;
+  z-index: -3;
 }
 
 body::before {
@@ -42,6 +42,37 @@ body::after {
   animation: pulseBg 12s ease-in-out infinite;
 }
 
+#root::before,
+#root::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background-repeat: repeat;
+}
+
+#root::before {
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.95), transparent 50%),
+    radial-gradient(1.5px 1.5px at 90px 120px, rgba(255, 255, 255, 0.85), transparent 50%),
+    radial-gradient(1.8px 1.8px at 160px 60px, rgba(216, 242, 251, 0.95), transparent 50%),
+    radial-gradient(1.2px 1.2px at 240px 180px, rgba(255, 255, 255, 0.9), transparent 50%);
+  background-size: 280px 220px;
+  opacity: 0.5;
+  animation: starsMove 45s linear infinite;
+}
+
+#root::after {
+  background-image:
+    radial-gradient(1px 1px at 40px 50px, rgba(255, 255, 255, 0.9), transparent 50%),
+    radial-gradient(1.4px 1.4px at 140px 90px, rgba(216, 242, 251, 0.9), transparent 50%),
+    radial-gradient(1.1px 1.1px at 220px 30px, rgba(255, 255, 255, 0.85), transparent 50%);
+  background-size: 260px 200px;
+  opacity: 0.4;
+  animation: starsMoveReverse 60s linear infinite;
+}
+
 @keyframes floatBg {
   0% { transform: translate3d(0, 0, 0) scale(1); }
   100% { transform: translate3d(-2%, 2%, 0) scale(1.05); }
@@ -52,6 +83,23 @@ body::after {
   50% { opacity: 0.75; }
 }
 
+@keyframes starsMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-220px); }
+}
+
+@keyframes starsMoveReverse {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(220px); }
+}
+
 * {
   box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  #root::before,
+  #root::after {
+    opacity: 0.3;
+  }
 }
